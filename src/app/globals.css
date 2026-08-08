@@ -1,0 +1,759 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-vazir), "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jb-mono), "JetBrains Mono", ui-monospace, monospace;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html,
+  body {
+    height: 100%;
+  }
+}
+
+/* Custom scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted-foreground) transparent;
+}
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: color-mix(in oklch, var(--muted-foreground) 35%, transparent);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: color-mix(in oklch, var(--muted-foreground) 55%, transparent);
+  background-clip: content-box;
+}
+
+/* Subtle animated background gradient for the welcome area */
+.welcome-glow {
+  background:
+    radial-gradient(60% 50% at 50% 0%, color-mix(in oklch, var(--primary) 10%, transparent) 0%, transparent 70%),
+    radial-gradient(40% 40% at 80% 80%, color-mix(in oklch, var(--primary) 5%, transparent) 0%, transparent 60%);
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: color-mix(in oklch, var(--background) 75%, transparent);
+  backdrop-filter: blur(12px) saturate(1.4);
+  -webkit-backdrop-filter: blur(12px) saturate(1.4);
+}
+
+/* Subtle dot pattern overlay */
+.dot-pattern {
+  background-image: radial-gradient(circle, color-mix(in oklch, var(--muted-foreground) 12%, transparent) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Animated gradient shimmer */
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, transparent 0%, color-mix(in oklch, var(--primary) 8%, transparent) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Pulse ring for active avatar */
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+.pulse-ring::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  border: 2px solid currentColor;
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+/* Smooth hover lift */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px color-mix(in oklch, var(--foreground) 8%, transparent);
+}
+
+/* Fade-in animation */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up {
+  animation: fade-in-up 0.4s ease-out both;
+}
+
+/* Typing cursor blink */
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.blink-cursor::after {
+  content: '▋';
+  animation: blink-cursor 1s step-end infinite;
+  color: var(--muted-foreground);
+  margin-left: 1px;
+}
+
+/* Selection styling */
+::selection {
+  background: color-mix(in oklch, var(--primary) 25%, transparent);
+  color: var(--foreground);
+}
+
+/* Better focus ring for accessibility */
+:focus-visible {
+  outline: 2px solid color-mix(in oklch, var(--primary) 50%, transparent);
+  outline-offset: 2px;
+}
+
+/* Streaming shimmer effect — applied to the streaming assistant bubble */
+@keyframes stream-glow {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklch, var(--primary) 0%, transparent); }
+  50% { box-shadow: 0 0 12px 2px color-mix(in oklch, var(--primary) 10%, transparent); }
+}
+.stream-glow {
+  animation: stream-glow 2s ease-in-out infinite;
+}
+
+/* Drag-over highlight */
+.drag-over {
+  background: color-mix(in oklch, var(--primary) 5%, transparent);
+  border-color: color-mix(in oklch, var(--primary) 50%, transparent);
+}
+
+/* Folder tab smooth scroll hide */
+.folder-tabs::-webkit-scrollbar {
+  display: none;
+}
+.folder-tabs {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Subtle gradient border for active conversation */
+.active-conv-glow {
+  box-shadow: inset 2px 0 0 0 var(--primary), 0 1px 2px color-mix(in oklch, var(--foreground) 5%, transparent);
+}
+
+/* Reasoning block gradient */
+.reasoning-block {
+  background: linear-gradient(135deg, color-mix(in oklch, var(--primary) 4%, transparent) 0%, transparent 100%);
+}
+
+/* Hide scrollbar on input bar actions row for mobile */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Print-friendly */
+@media print {
+  .no-print { display: none !important; }
+  body { background: white !important; color: black !important; }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Better link hover in markdown */
+.prose a {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklch, currentColor 30%, transparent);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.15s ease;
+}
+.prose a:hover {
+  text-decoration-color: currentColor;
+}
+
+/* Subtle gradient text for headings */
+.gradient-text {
+  background: linear-gradient(135deg, var(--foreground) 0%, color-mix(in oklch, var(--foreground) 70%, var(--muted-foreground)) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Floating orb animation for welcome screen */
+@keyframes float-orb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -20px) scale(1.05); }
+  50% { transform: translate(-10px, 15px) scale(0.95); }
+  75% { transform: translate(-25px, -10px) scale(1.02); }
+}
+.float-orb {
+  animation: float-orb 12s ease-in-out infinite;
+}
+.float-orb-delay {
+  animation: float-orb 15s ease-in-out infinite;
+  animation-delay: -5s;
+}
+.float-orb-slow {
+  animation: float-orb 18s ease-in-out infinite;
+  animation-delay: -10s;
+}
+
+/* Subtle gradient border effect */
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, color-mix(in oklch, var(--primary) 30%, transparent), transparent 50%, color-mix(in oklch, var(--primary) 15%, transparent));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Message bubble entrance animation */
+@keyframes message-enter {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.message-enter {
+  animation: message-enter 0.3s ease-out both;
+}
+
+/* Ripple effect for buttons */
+@keyframes ripple {
+  0% { transform: scale(0); opacity: 0.5; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+/* Subtle breathing glow for streaming indicator */
+@keyframes breathe {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+.breathe {
+  animation: breathe 2s ease-in-out infinite;
+}
+
+/* Search highlight */
+.search-highlight {
+  background: color-mix(in oklch, var(--primary) 20%, transparent);
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+/* Stats bar animation */
+@keyframes grow-bar {
+  from { width: 0; }
+}
+.grow-bar {
+  animation: grow-bar 0.6s ease-out both;
+}
+
+/* Keyboard shortcut key styling */
+.kbd-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 6px;
+  border-radius: 6px;
+  border: 1px solid color-mix(in oklch, var(--border) 80%, transparent);
+  background: color-mix(in oklch, var(--muted) 60%, transparent);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  color: var(--muted-foreground);
+  box-shadow: 0 1px 0 color-mix(in oklch, var(--border) 60%, transparent);
+}
+
+/* Bookmark star animation */
+@keyframes star-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+.star-pop {
+  animation: star-pop 0.3s ease-out;
+}
+
+/* Enhanced input focus ring */
+@keyframes focus-ring {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklch, var(--primary) 0%, transparent); }
+  50% { box-shadow: 0 0 0 3px color-mix(in oklch, var(--primary) 12%, transparent); }
+}
+
+/* Chat area subtle gradient */
+.chat-gradient {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, color-mix(in oklch, var(--primary) 3%, transparent) 0%, transparent 100%);
+}
+
+/* Sidebar active item accent */
+.sidebar-active-item {
+  position: relative;
+  background: color-mix(in oklch, var(--accent) 100%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--primary) 12%, transparent);
+}
+.sidebar-active-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(to bottom, oklch(0.696 0.17 162.48), oklch(0.627 0.194 149.48));
+}
+
+/* Smooth collapse animation */
+@keyframes smooth-collapse {
+  from { max-height: 200px; opacity: 1; }
+  to { max-height: 0; opacity: 0; }
+}
+
+/* Subtle noise texture for chat background */
+.noise-bg {
+  position: relative;
+}
+.noise-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Smooth slide-in for sidebar items */
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.slide-in-left {
+  animation: slide-in-left 0.25s ease-out both;
+}
+
+/* Stagger children animation */
+.stagger-children > * {
+  animation: slide-in-left 0.25s ease-out both;
+}
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 30ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 60ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 90ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 120ms; }
+.stagger-children > *:nth-child(6) { animation-delay: 150ms; }
+.stagger-children > *:nth-child(7) { animation-delay: 180ms; }
+.stagger-children > *:nth-child(8) { animation-delay: 210ms; }
+.stagger-children > *:nth-child(9) { animation-delay: 240ms; }
+.stagger-children > *:nth-child(10) { animation-delay: 270ms; }
+
+/* Enhanced input glow on focus */
+@keyframes input-glow {
+  0%, 100% { box-shadow: 0 0 0 0 transparent; }
+  50% { box-shadow: 0 0 20px -4px color-mix(in oklch, var(--primary) 15%, transparent); }
+}
+.input-glow:focus-within {
+  animation: input-glow 2s ease-in-out infinite;
+}
+
+/* Smooth page transition */
+@keyframes page-enter {
+  from { opacity: 0; filter: blur(4px); }
+  to { opacity: 1; filter: blur(0); }
+}
+.page-enter {
+  animation: page-enter 0.3s ease-out both;
+}
+
+/* Persona card hover glow */
+.persona-glow {
+  transition: box-shadow 0.3s ease;
+}
+.persona-glow:hover {
+  box-shadow: 0 0 24px -8px color-mix(in oklch, var(--primary) 25%, transparent);
+}
+
+/* Smooth scrollbar thumb interaction */
+.custom-scrollbar::-webkit-scrollbar-thumb:active {
+  background-color: color-mix(in oklch, var(--muted-foreground) 75%, transparent);
+  background-clip: content-box;
+}
+
+/* Enhanced toast styling */
+@keyframes toast-in {
+  from { transform: translateY(-100%) scale(0.95); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* Subtle border glow for active items */
+.active-glow {
+  box-shadow: 
+    inset 0 0 0 1px color-mix(in oklch, var(--primary) 20%, transparent),
+    0 0 12px -4px color-mix(in oklch, var(--primary) 10%, transparent);
+}
+
+/* Text selection highlight */
+.text-highlight {
+  background: linear-gradient(
+    120deg,
+    color-mix(in oklch, var(--primary) 20%, transparent) 0%,
+    color-mix(in oklch, var(--primary) 30%, transparent) 100%
+  );
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+/* Smooth skeleton loading */
+@keyframes skeleton-wave {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton-wave {
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklch, var(--muted) 60%, transparent) 25%,
+    color-mix(in oklch, var(--muted) 100%, transparent) 50%,
+    color-mix(in oklch, var(--muted) 60%, transparent) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-wave 1.5s ease-in-out infinite;
+}
+
+/* ============================================================
+   Styling Polish (Task 2-c)
+   ============================================================ */
+
+/* Streaming typewriter cursor — appended to assistant messages
+   while they are streaming. Uses a hard on/off blink so it reads
+   like a terminal cursor rather than a soft pulse. */
+.streaming-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background-color: currentColor;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: streaming-blink-cursor 1s steps(2, start) infinite;
+  border-radius: 1px;
+}
+@keyframes streaming-blink-cursor {
+  to { visibility: hidden; }
+}
+
+/* Persona-themed radial gradient applied to the chat background.
+   Very subtle (~4% opacity) so it adds atmosphere without
+   distracting from the messages. */
+.persona-bg-emerald {
+  background-image: radial-gradient(ellipse at top, rgba(16, 185, 129, 0.04), transparent 60%);
+}
+.persona-bg-cyan {
+  background-image: radial-gradient(ellipse at top, rgba(6, 182, 212, 0.04), transparent 60%);
+}
+.persona-bg-rose {
+  background-image: radial-gradient(ellipse at top, rgba(244, 63, 94, 0.04), transparent 60%);
+}
+.persona-bg-amber {
+  background-image: radial-gradient(ellipse at top, rgba(245, 158, 11, 0.04), transparent 60%);
+}
+.persona-bg-violet {
+  background-image: radial-gradient(ellipse at top, rgba(139, 92, 246, 0.04), transparent 60%);
+}
+.persona-bg-orange {
+  background-image: radial-gradient(ellipse at top, rgba(249, 115, 22, 0.04), transparent 60%);
+}
+
+/* Enhanced skeleton shimmer — utility class for loading states.
+   Uses a moving highlight band across a muted background to
+   create a "skeleton" shimmer effect. NOTE: project theme vars
+   are oklch colors, so we use them directly via color-mix instead
+   of wrapping in hsl(). */
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--muted) 25%,
+    color-mix(in oklch, var(--muted-foreground) 13%, var(--muted)) 37%,
+    var(--muted) 63%
+  );
+  background-size: 400% 100%;
+  animation: skeleton-shimmer 1.4s ease infinite;
+  border-radius: calc(var(--radius) - 4px);
+}
+@keyframes skeleton-shimmer {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+
+/* Message density — consumed via data-density attribute on <html>.
+   The .density-aware container is the flex column wrapping chat
+   messages; its gap adjusts based on the user's settings choice. */
+[data-density="cozy"] .density-aware {
+  gap: 1rem;
+}
+[data-density="relaxed"] .density-aware {
+  gap: 2rem;
+}
+
+/* Sticky date divider pill — centered between message groups.
+   The horizontal lines on each side are drawn via flex with
+   thin border-t segments so the divider reads as a continuous
+   rule with a centered label. */
+.date-divider-pill {
+  background-color: color-mix(in oklch, var(--muted) 80%, transparent);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+/* ============================================================
+   RTL & Persian Typography (هوش نو)
+   ============================================================ */
+
+/* Persian text reads better with slightly more line-height and
+   no letter-spacing (Persian glyphs are already wide). */
+html[lang="fa"] body {
+  letter-spacing: 0;
+}
+
+/* Headings in Persian: a touch tighter, heavier weight reads better */
+html[lang="fa"] h1,
+html[lang="fa"] h2,
+html[lang="fa"] h3 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* In RTL, the sidebar active accent bar should sit on the RIGHT
+   edge (the inline-start in RTL) instead of the left. */
+html[dir="rtl"] .sidebar-active-item::before {
+  left: auto;
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* The active-conv-glow inset shadow was hardcoded to the left edge.
+   Flip it to the right under RTL so the accent reads correctly. */
+html[dir="rtl"] .active-conv-glow {
+  box-shadow: inset -2px 0 0 0 var(--primary), 0 1px 2px color-mix(in oklch, var(--foreground) 5%, transparent);
+}
+
+/* Slide-in animation for RTL sidebar items (from the right). */
+html[dir="rtl"] .slide-in-left,
+html[dir="rtl"] .stagger-children > * {
+  animation-name: slide-in-right;
+}
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Code blocks should stay LTR even in an RTL document — code is
+   always read left-to-right. */
+html[dir="rtl"] pre,
+html[dir="rtl"] code,
+html[dir="rtl"] kbd,
+html[dir="rtl"] .kbd-key,
+html[dir="rtl"] .font-mono {
+  direction: ltr;
+  unicode-bidi: embed;
+  text-align: left;
+}
+
+/* Persian numerals in tabular contexts: keep digits monospaced-ish */
+html[lang="fa"] .tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Persian input: ensure proper text alignment and cursor */
+html[dir="rtl"] input,
+html[dir="rtl"] textarea {
+  text-align: right;
+}
+/* But LTR inputs (URLs, keys, code) should stay left-aligned. */
+html[dir="rtl"] input[data-ltr="true"],
+html[dir="rtl"] textarea[data-ltr="true"],
+html[dir="rtl"] input[type="url"],
+html[dir="rtl"] input[type="password"] {
+  text-align: left;
+  direction: ltr;
+}
+
+/* Brand wordmark gradient for "هوش نو" */
+.brand-wordmark {
+  background: linear-gradient(135deg, oklch(0.696 0.17 162.48) 0%, oklch(0.627 0.194 149.48) 50%, oklch(0.546 0.245 262.881) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtle brand badge */
+.brand-badge {
+  background: linear-gradient(135deg, color-mix(in oklch, oklch(0.696 0.17 162.48) 18%, transparent), color-mix(in oklch, oklch(0.627 0.265 303.9) 14%, transparent));
+  border: 1px solid color-mix(in oklch, oklch(0.696 0.17 162.48) 25%, transparent);
+}
+
+/* Developer credit footer chip */
+.dev-credit {
+  background: color-mix(in oklch, var(--muted) 60%, transparent);
+  border: 1px solid color-mix(in oklch, var(--border) 80%, transparent);
+}
+
+/* RTL-safe scrollbar: keep on the inline-end (right in RTL) */
+html[dir="rtl"] .custom-scrollbar {
+  direction: ltr; /* scrollbar position follows dir; we want it visible */
+}
+html[dir="rtl"] .custom-scrollbar > * {
+  direction: rtl;
+}
+
+/* Persian markdown prose tweaks — slightly larger line height for
+   readability of mixed Persian/Latin/numerals. */
+html[dir="rtl"] .prose {
+  line-height: 1.85;
+}
+html[dir="rtl"] .prose li {
+  padding-right: 0.25rem;
+}
+
+/* Tooltip & popover arrow flip under RTL is handled by Radix; no
+   override needed. */
+
+/* Focus ring offset plays nicely with RTL too (symmetric). */

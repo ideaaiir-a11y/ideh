@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  
+  <defs>
+    <!-- گرادینت شعاعی برای جلوه ۳ بعدی دایره -->
+    <radialGradient id="glow" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#FFEDD5" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#F97316" stop-opacity="0"/>
+    </radialGradient>
+    
+    <!-- انیمیشن چرخش دایره -->
+    <animateTransform id="spin" attributeName="transform" type="rotate" 
+                      from="0 200 190" to="360 200 190" dur="6s" repeatCount="indefinite"/>
+    
+    <!-- انیمیشن چشمک‌زن رعد و برق -->
+    <style>
+      @keyframes flashBolt {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.15; }
+      }
+      .bolt-group {
+        animation: flashBolt 1.8s ease-in-out infinite;
+      }
+      @keyframes pulseRing {
+        0%, 100% { stroke-opacity: 0.3; stroke-width: 2; }
+        50% { stroke-opacity: 0.9; stroke-width: 4; }
+      }
+      .outer-ring {
+        animation: pulseRing 3s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+  
+  <!-- سایه ۳ بعدی دایره -->
+  <circle cx="210" cy="215" r="130" fill="#9A3412" opacity="0.3"/>
+  
+  <!-- بدنه ۳ بعدی دایره (لایه پشت) -->
+  <circle cx="200" cy="200" r="135" fill="#C2410C"/>
+  
+  <!-- دایره اصلی با چرخش -->
+  <g>
+    <animateTransform attributeName="transform" type="rotate" 
+                      from="0 200 190" to="360 200 190" dur="6s" repeatCount="indefinite"/>
+    
+    <!-- دایره نارنجی -->
+    <circle cx="200" cy="190" r="130" fill="#F97316" stroke="#EA580C" stroke-width="4"/>
+    <circle cx="200" cy="190" r="130" fill="url(#glow)"/>
+    
+    <!-- هایلایت روی دایره -->
+    <ellipse cx="155" cy="140" rx="50" ry="28" fill="white" opacity="0.25" transform="rotate(-25, 155, 140)"/>
+    
+    <!-- حلقه‌های تزئینی -->
+    <circle cx="200" cy="190" r="138" fill="none" stroke="#F97316" stroke-width="2" opacity="0.5" stroke-dasharray="8 6"/>
+    <circle cx="200" cy="190" r="142" fill="none" stroke="#EA580C" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 8"/>
+    
+    <!-- خطوط شعاعی برای جلوه چرخش -->
+    <line x1="200" y1="60" x2="200" y2="75" stroke="#FFEDD5" stroke-width="2" opacity="0.3"/>
+    <line x1="200" y1="305" x2="200" y2="320" stroke="#FFEDD5" stroke-width="2" opacity="0.3"/>
+    <line x1="70" y1="190" x2="85" y2="190" stroke="#FFEDD5" stroke-width="2" opacity="0.3"/>
+    <line x1="315" y1="190" x2="330" y2="190" stroke="#FFEDD5" stroke-width="2" opacity="0.3"/>
+    <line x1="112" y1="102" x2="123" y2="113" stroke="#FFEDD5" stroke-width="2" opacity="0.3"/>
+    <line x1="277" y1="267" x2="288" y2="278" stroke="#FFEDD5" stroke-width="2" opacity="0.3"/>
+    <line x1="288" y1="102" x2="277" y2="113" stroke="#FFEDD5" stroke-width="2" opacity="0.3"/>
+    <line x1="123" y1="267" x2="112" y2="278" stroke="#FFEDD5" stroke-width="2" opacity="0.3"/>
+  </g>
+  
+  <!-- رعد و برق با فلش سفید چشمک‌زن -->
+  <g class="bolt-group">
+    <!-- سایه رعد برق -->
+    <polygon points="220,105 170,195 205,195 180,280 230,185 195,185" 
+             fill="#1E3A8A" opacity="0.3"/>
+    <!-- بدنه رعد برق آبی -->
+    <polygon points="215,105 165,195 200,195 175,280 225,185 190,185" 
+             fill="#3B82F6" stroke="#1D4ED8" stroke-width="3" stroke-linejoin="round"/>
+    <!-- فلش سفید روی رعد برق -->
+    <polygon points="210,120 185,185 200,185 185,260 205,195 195,195" 
+             fill="white" opacity="0.7"/>
+  </g>
+  
+  <!-- حلقه خارجی با انیمیشن پالس -->
+  <circle class="outer-ring" cx="200" cy="190" r="150" fill="none" stroke="#F97316" stroke-width="2" opacity="0.3"/>
+  
+  <!-- نوشته idea با سایه ۳ بعدی -->
+  <text x="200" y="270" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="52" font-weight="900" fill="#5B21B6" letter-spacing="4">
+    idea
+  </text>
+  <text x="203" y="273" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="52" font-weight="900" fill="#2E1065" opacity="0.3" letter-spacing="4">
+    idea
+  </text>
+  
+</svg>
